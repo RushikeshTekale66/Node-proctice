@@ -1,3 +1,6 @@
-const app = require('./app')
-console.log(app);
-console.log(app.y());
+const arr = [1,2,3,4,5,6,7,7,8,9];
+
+//filter is used to traverse all element of an array
+arr.filter((item)=>{
+    console.log(item);
+})
