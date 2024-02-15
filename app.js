@@ -1,6 +1,6 @@
 module.exports = {
-    x:{
-        x:10,
-        y:20
+    x:10,
+    y:function(){
+        return 100;
     }
 };
