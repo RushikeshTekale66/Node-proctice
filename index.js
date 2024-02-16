@@ -1,6 +1,9 @@
 const http = require('http');
 
-http.createServer((req, res)=>{
-    res.write("<h1>Hi I am rushikesh</h1>");
+//Passing function as a argument in Node
+function datacontrol(req, res){
+    res.write("<h1>Hi I am rushikesh Tekale</h1>");
     res.end();
-}).listen(4500);
+}
+
+http.createServer(datacontrol).listen(4500);
