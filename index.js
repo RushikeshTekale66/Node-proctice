@@ -1,8 +1,6 @@
-const arr = [1,2,3,4,5,6,7,7,8,9];
+const http = require('http');
 
-//filter is used to traverse all element of an array
-const result = arr.filter((item)=>{
-    return item>5;
-})
-
-console.log(result);
+http.createServer((req, res)=>{
+    res.write("<h1>Hi I am rushikesh</h1>");
+    res.end();
+}).listen(4500);
