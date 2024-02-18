@@ -1,9 +1,8 @@
 const http = require('http');
+const data = require('./data')
 
-//Passing function as a argument in Node
-function datacontrol(req, res){
-    res.write("<h1>Hi I am rushikesh Tekale</h1>");
-    res.end();
-}
-
-http.createServer(datacontrol).listen(4500);
+http.createServer((req, res)=>{
+    res.writeHead(200, {'Content-Type':'application/json'});
+    res.write(JSON.stringify(data));
+    res.end;
+}).listen(5000);
