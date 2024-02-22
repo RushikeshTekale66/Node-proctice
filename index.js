@@ -8,4 +8,6 @@ const filePath = `${dirPath}/text.txt`;
 
 // fs.readFile(filePath, 'utf-8', (err, item) => { console.log(item); })
 
-fs.appendFile(filePath, "And writer is rushikesh", (err) => { if (!err) { console.log("File is updated") } })
+// fs.appendFile(filePath, "And writer is rushikesh", (err) => { if (!err) { console.log("File is updated") } })
+
+fs.rename(filePath, "text2.txt", (err)=>{if(!err)console.log("File name updated");});
