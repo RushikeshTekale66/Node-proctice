@@ -2,12 +2,10 @@ const fs = require('fs');
 
 const input = process.argv;
 
-// PS C:\Users\Rushikesh Tekale\Web devlopment VS\Practice\Node> node index.js add data.txt "Rushikesh"
-// If it contain add in input the it will be create file name of data.txt & add data in it Rushikesh
-// in node process.argv already contain two file
-
-if(input[2]=='add'){
-    fs.writeFileSync(input[3], input[4]);
+// PS C:\Users\Rushikesh Tekale\Web devlopment VS\Practice\Node>  node index.js remove data.txt
+// if CMD contain the remove key the it will remove that file
+if(input[2]=='remove'){
+    fs.unlinkSync(input[3]);
 }
 else{
     console.log("Invalid input");
