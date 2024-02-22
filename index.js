@@ -1,12 +1,9 @@
 const fs = require('fs');
 
-const input = process.argv;
+const path = require('path');
 
-// PS C:\Users\Rushikesh Tekale\Web devlopment VS\Practice\Node>  node index.js remove data.txt
-// if CMD contain the remove key the it will remove that file
-if(input[2]=='remove'){
-    fs.unlinkSync(input[3]);
-}
-else{
-    console.log("Invalid input");
+const dirPath = path.join(__dirname, 'files');
+
+for(i=0; i<5; i++){
+    fs.writeFileSync(dirPath+"/hellow"+i+".txt", "It is the simple text file");
 }
