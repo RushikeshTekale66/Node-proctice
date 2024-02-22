@@ -10,4 +10,6 @@ const filePath = `${dirPath}/text.txt`;
 
 // fs.appendFile(filePath, "And writer is rushikesh", (err) => { if (!err) { console.log("File is updated") } })
 
-fs.rename(filePath, "text2.txt", (err)=>{if(!err)console.log("File name updated");});
+// fs.rename(filePath, "text2.txt", (err)=>{if(!err)console.log("File name updated");});
+
+fs.unlinkSync('text2.txt');
