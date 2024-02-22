@@ -1,9 +1,7 @@
 const fs = require('fs');
-
 const path = require('path');
 
-const dirPath = path.join(__dirname, 'files');
+const dirPath = path.join(__dirname, 'Path');
+const filePath = `${dirPath}/text.txt`;
 
-for(i=0; i<5; i++){
-    fs.writeFileSync(dirPath+"/hellow"+i+".txt", "It is the simple text file");
-}
+fs.writeFileSync(filePath, "This is simple text file");
