@@ -1,15 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+console.log("First");
 
-const dirPath = path.join(__dirname, 'Path');
-const filePath = `${dirPath}/text.txt`;
-
-// fs.writeFileSync(filePath, "This is simple text file");
-
-// fs.readFile(filePath, 'utf-8', (err, item) => { console.log(item); })
-
-// fs.appendFile(filePath, "And writer is rushikesh", (err) => { if (!err) { console.log("File is updated") } })
-
-// fs.rename(filePath, "text2.txt", (err)=>{if(!err)console.log("File name updated");});
-
-fs.unlinkSync('text2.txt');
+//node is a asynchronous programming language it can execute all code at a time it does not wait for another function to run
+setTimeout(()=>{
+    console.log("Second");
+},1000)
+console.log("Third");
