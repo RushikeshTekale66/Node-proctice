@@ -1,7 +1,13 @@
-console.log("First");
+const express = require('express');
+const app = express();
 
-//node is a asynchronous programming language it can execute all code at a time it does not wait for another function to run
-setTimeout(()=>{
-    console.log("Second");
-},1000)
-console.log("Third");
+// http://localhost:5000/?name=%22Rushikesh%22
+// Getting the data from query parameter
+
+app.get("", (req, res)=>{
+    res.send("HI rushikesh");
+    console.log(req.query);
+    console.log(req.query.name);
+})
+
+app.listen(5000);

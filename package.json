@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RushikeshTekale66/Node-proctice/issues"
   },
-  "homepage": "https://github.com/RushikeshTekale66/Node-proctice#readme"
+  "homepage": "https://github.com/RushikeshTekale66/Node-proctice#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
