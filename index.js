@@ -1,10 +1,12 @@
+const { log } = require('console');
 const express = require('express');
+const path = require('path');
 const app = express();
 
-// Rendering Json in node 
+// __dirname = Path of our current directory ex =  C:\Users\Rushikesh Tekale\Web devlopment VS\Practice\Node
+const publicPath = path.join(__dirname, "public");
 
-app.get("", (req, res)=>{
-    res.send({fname:"Rushikesh", lname: "Tekale"});
-})
+// express.static is used to run the static file like html
+app.use(express.static(publicPath));
 
 app.listen(5000);
