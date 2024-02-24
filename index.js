@@ -5,9 +5,9 @@ const app = express();
 // Getting the data from query parameter
 
 app.get("", (req, res)=>{
-    res.send("HI rushikesh");
-    console.log(req.query);
-    console.log(req.query.name);
+    res.send(
+        "<h1>HI rushikesh</h1><input type='text'placeholder='input box'/>"
+        );
 })
 
 app.listen(5000);
