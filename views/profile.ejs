@@ -9,5 +9,11 @@
     <h1>Welcome <%= data.name %></h1>
     <h2>Mobile: <%= data.mobile%></h2>
     <h3>Lives in : <%= data.address%></h3>
+    <!-- Using the for each loop to iterate data in index.js -->
+    <ul>
+        <% data.skills.forEach((item)=>{ %>
+            <li><%= item %></li>
+        <% }) %>
+    </ul>
 </body>
 </html>

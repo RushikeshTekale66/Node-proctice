@@ -21,7 +21,9 @@ app.get(("/profile"), (req, res)=>{
     const data = {
         name:"Rushikesh",
         mobile:7887388366,
-        address:"Pune"
+        address:"Pune",
+        // Added the array of data in object
+        skills:['php', 'java', 'js', 'c++', 'c']
     }
    res.render('profile', {data});
 })
