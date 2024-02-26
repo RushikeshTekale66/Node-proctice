@@ -28,6 +28,10 @@ app.get(("/profile"), (req, res)=>{
    res.render('profile', {data});
 })
 
+app.get(("/login"), (req, res)=>{
+    res.render('login');
+})
+
 
 // We can solve the page not found error by using this routing 
 app.get(("*"), (req, res)=>{
