@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 
-// middle where is used to check user is loged in or not
-// it is used to check authontications
+// Application level middlewhere
+// It is applied for whole application
+
 const middleware = ((req, res, next)=>{
     if(req.query.age>18){
         res.send("<h1>Success</h1>");
