@@ -1,41 +1,25 @@
-const { log } = require('console');
 const express = require('express');
-const path = require('path');
 const app = express();
 
-const publicPath = path.join(__dirname, "public");
-
-// Install npm i ejs 
-app.set('view engine', 'ejs');
-
-app.get((""), (req, res)=>{
-    res.sendFile(`${publicPath}/index.html`);
-})
-
-app.get(("/about"), (req, res)=>{
-    res.sendFile(`${publicPath}/about.html`)
-})
-
-// Making dynamic website using EJS
-app.get(("/profile"), (req, res)=>{
-    const data = {
-        name:"Rushikesh",
-        mobile:7887388366,
-        address:"Pune",
-        // Added the array of data in object
-        skills:['php', 'java', 'js', 'c++', 'c']
+// middle where is used to check user is loged in or not
+// it is used to check authontications
+const middleware = ((req, res, next)=>{
+    if(req.query.age>18){
+        res.send("<h1>Success</h1>");
     }
-   res.render('profile', {data});
+    else if(req.query.age<18){
+        res.send("<h1>you are below 18</h1>");
+    }
+    else{
+        next();
+    }
+    
 })
 
-app.get(("/login"), (req, res)=>{
-    res.render('login');
+app.use(middleware)
+
+app.get("/", (req, res)=>{
+    res.send("<h1>Hi I am Rushikesh</h1>")
+    middle
 })
-
-
-// We can solve the page not found error by using this routing 
-app.get(("*"), (req, res)=>{
-    res.sendFile(`${publicPath}/nopage.html`);
-})
-
 app.listen(5000);
