@@ -1,24 +1,8 @@
 const express = require('express');
 const app = express();
-const middleware = require('./middleware')
-// It is used to setup the middle where for specific route
-const middle = express.Router();
-middle.use(middleware);
 
-app.get("/", (req, res)=>{
-    res.send("<h1>Hi I am Rushikesh Home</h1>")
-})
+const mongoose = require('mongoose');
 
-app.get("/profile" , (req, res)=>{
-    res.send("<h1>Hi I am Rushikesh Profile</h1>")
-})
+const url = 'mongodb://127.0.0.1:27017';
 
-middle.get("/about", (req, res)=>{
-    res.send("<h1>Hi I am Rushikesh About</h1>")
-})
-
-// setting the middleware to app
-app.use('/', middle);
-
-
-app.listen(5000);
+mongoose.connect(url).then(console.log("Connected")).catch((e)=>console.log(e))
