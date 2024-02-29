@@ -1,8 +1,17 @@
-const express = require('express');
+require('./connect');
+const express  = require("express");
 const app = express();
 
-const mongoose = require('mongoose');
+app.use(express.json());
 
-const url = 'mongodb://127.0.0.1:27017';
+const db = require('./db');
 
-mongoose.connect(url).then(console.log("Connected")).catch((e)=>console.log(e))
+app.get('/', async(req, res)=>{
+  let result = await db.find({});
+  console.log(result);
+  res.send(result)
+})
+
+
+
+app.listen(5000);
