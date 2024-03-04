@@ -18,6 +18,15 @@ app.post('/save', async(req, res)=>{
   console.log(data);
 })
 
+// http://localhost:5000/update/65bbd202c6e29766b05a67dd
+app.put("/update/:id", async(req, res)=>{
+  let result = await db.updateOne(
+    {_id:req.params.id},
+    {$set: req.body}
+  )
+  console.log(result);
+})
+
 
 
 app.listen(5000);
