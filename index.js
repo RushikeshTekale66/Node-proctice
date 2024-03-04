@@ -27,6 +27,13 @@ app.put("/update/:id", async(req, res)=>{
   console.log(result);
 })
 
+// http://localhost:5000/delete/65be29bc9d589a8d63de71aa
+app.delete("/delete/:id", async(req, res)=>{
+  let result = await db.deleteOne(
+    {_id:req.params.id}
+  )
+  console.log(result);
+})
 
 
 app.listen(5000);
