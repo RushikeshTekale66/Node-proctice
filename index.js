@@ -12,6 +12,12 @@ app.get('/', async(req, res)=>{
   res.send(result)
 })
 
+app.post('/save', async(req, res)=>{
+  let result = await db(req.body);
+  let data = await result.save()
+  console.log(data);
+})
+
 
 
 app.listen(5000);
