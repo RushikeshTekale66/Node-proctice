@@ -1,26 +1,29 @@
-require('./connect');
-const express = require("express");
-const multer = require('multer');
-const app = express();
-const db = require('./db');
+const os = require('os');
 
-app.use(express.json());
+// Some os function 
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, callback) {
-      callback(null, "uploads");
-    },
-    filename: function (req, file, callback) {
-      callback(null, file.fieldname + "-" + Date.now() + ".jpg")
-    }
-  })
-}).single("user")
+// Gives the architecture of system EX: x64
+console.log(os.arch());
 
-// "user" field name which is specified in api call in param section
+// Gives the free memory of system EX: 1.3540420532226562
+console.log(os.freemem()/(1024*1024*1024));
 
-app.post("/upload", upload, (req, res) => {
-  res.send("File Uploaded")
-})
+// Gives the to total ram memory EX : 7.9
+console.log(os.totalmem()/(1024*1024*1024));
 
-app.listen(5000);
+// Gives the host name EX: Rushi
+console.log(os.hostname());
+
+// Gives the platform EX: x64
+console.log(os.platform());
+
+// Gives the user information
+// EX:
+// {
+//   uid: -1,
+//   gid: -1,
+//   username: 'Rushikesh Tekale',
+//   homedir: 'C:\\Users\\Rushikesh Tekale',
+//   shell: null
+// }
+console.log(os.userInfo());
