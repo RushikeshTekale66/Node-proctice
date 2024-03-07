@@ -1,10 +1,14 @@
-const str = {name:"Rushikesh", lname:"Tekale"};
+const a = '12345';
 
-// convert the json object in to JSON string
-const jstring = JSON.stringify(str);
+// function is used to parse a string and convert it into an integer. 
+const b = JSON.parse(a);
+const c = parseInt(a);
 
-// { name: 'Rushikesh', lname: 'Tekale' }
-console.log(str);
+// string 12345
+console.log(typeof(a) , a);
 
-// {"name":"Rushikesh","lname":"Tekale"}
-console.log(jstring);
+// number 12345
+console.log(typeof(b), b);
+
+// number 12345
+console.log(typeof(c), c);
