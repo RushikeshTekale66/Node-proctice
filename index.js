@@ -1,14 +1,28 @@
-// object { name: 'Rushikesh', lname: 'Tekale' }
-const str = {name:"Rushikesh", lname:"Tekale"};
-console.log(typeof(str), str);
+
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const app = express();
+app.use(express.json());
+
+const secretKey = "Rushikesh";
+
+// const username = "Rushikesh";
+const user = {
+    fname:"Rushikesh",
+    lname:"Tekale"
+}
+
+app.get("/", (req, res)=>{
+    // Assigning data & secret key to token
+    const token = jwt.sign({user }, secretKey, {
+        expiresIn:3000
+    });
+    setTimeout(()=>{
+        console.log(token);
+    },4000)
+    return res.json(token.split("."))
+})
+
+app.listen(5000, console.log("App is live"));
 
 
-// string {"name":"Rushikesh","lname":"Tekale"}
-// Convert object to String
-const str2 = JSON.stringify(str);
-console.log(typeof(str2), str2);
-
-// object { name: 'Rushikesh', lname: 'Tekale' }
-// Convert json string into object
-const str3 = JSON.parse(str2);
-console.log(typeof(str3), str3);
