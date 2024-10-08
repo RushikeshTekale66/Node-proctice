@@ -1,21 +1,17 @@
-const http = require("http");
-const fs = require("fs");
+const url = require("url");
 
-const server = http.createServer((req, res)=>{
-    let log = `${Date.now()} : New Request received ${req.url}`
-    fs.appendFile("log.txt", log, (err, data)=>{
-        switch(req.url){
-            case '/': res.end("home page");
-            break;
-            case '/about' : res.end("About page");
-            break;
-            case '/contact': res.end("Contact page");
-            break;
-            default : res.end("Default page");
-            break;
-        }
-    })
-})
+const adr = "https://www.w3schools.com/nodejs/shownodejs.asp?filename=demo_http_header";
 
-server.listen(8080, ()=>console.log("Server is running")
-);
+const q = url.parse(adr, true);
+
+console.log(q);
+console.log("Protocol is : ", q.protocol);
+console.log("Host/Domain name is : ", q.host);
+console.log("Path name is : ", q.path);
+console.log("Query is : ", q.query);
+console.log("File is : ", q.query.filename);
+
+
+
+
+
