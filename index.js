@@ -1,17 +1,44 @@
-const url = require("url");
+ const fs = require("fs");
+ 
+//1]  Create new file & add data to it , if file already exist then replace it
 
-const adr = "https://www.w3schools.com/nodejs/shownodejs.asp?filename=demo_http_header";
+// sysc
+fs.writeFileSync("./text.txt", "Hellow text 1 file");
 
-const q = url.parse(adr, true);
+// Async
+fs.writeFile("./text1.txt", "Hellow text 2 file", (error)=>{});
 
-console.log(q);
-console.log("Protocol is : ", q.protocol);
-console.log("Host/Domain name is : ", q.host);
-console.log("Path name is : ", q.path);
-console.log("Query is : ", q.query);
-console.log("File is : ", q.query.filename);
+//2]Create file & add data to it
+
+// sync
+fs.appendFileSync("./text2.txt", "Hey there \n");
+
+// async
+fs.appendFile("./text3.txt", "hey there \n", (error)=>{});
+
+//3] Read data from file
+//sync
+const result = fs.readFileSync("./text.txt", "utf-8");
+console.log(result);
 
 
+//async
+fs.readFile("./text1.txt", "utf-8", (error, result)=>{
+    if(error){
+        console.log("Got error : ", error);
+        
+    }
+    else{
+        console.log(result);
+        
+    }
+})
 
+// 4] Copy file
+fs.cpSync("./text3.txt", "./Copy.txt");
 
+// 5]Delete file
+fs.unlinkSync("./text3.txt");
 
+// 6] Rename file
+fs.renameSync("./text.txt", "./newFile.txt");
